@@ -26,7 +26,7 @@ contract Marketplace {
     }
 
     function createProduct(string memory _name, uint _price) public {
-        require(bytes(name).length > 0);
+        require(bytes(_name).length > 0);
         require(_price > 0);
         // Make sure params are correct
         // Increment
