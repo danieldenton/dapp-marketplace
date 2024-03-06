@@ -99,6 +99,9 @@ contract("Marketplace", ([deployer, seller, buyer]) => {
       let price;
       price = web3.utils.toWei('1', 'Ether')
       price = new web3.utils.BN(price)
+
+      const expectedBalance = oldSellerBalance.add(price)
+      assert.equal(newSellerBalance.toString(), expectedBalance.toString())
     });
   });
 });
