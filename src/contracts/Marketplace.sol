@@ -21,6 +21,15 @@ contract Marketplace {
         bool purchased
     );
 
+     event ProductPurchased(
+        uint id,
+        string name,
+        uint price,
+        address payable owner,
+        bool purchased
+    );
+
+
     constructor() public {
         name = "Dapp University Marketplace";
     }
@@ -52,5 +61,6 @@ contract Marketplace {
 
         address(_seller).transfer(msg.value);
 
+        emit ProductPurchased(productCount, _product.name, _product.price, msg.sender, true);
     }
 }
